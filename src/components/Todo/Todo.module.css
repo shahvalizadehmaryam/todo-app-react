@@ -1,0 +1,14 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  width: 30rem;
+  border: 1px solid purple;
+  border-radius: 10px;
+  padding: 10px;
+}
+.complete{
+    text-decoration: line-through;
+    color: #a59d9d;
+}
