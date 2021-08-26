@@ -1,17 +1,17 @@
 import styles from "./Todo.module.css";
-const Todo = ({ todo, onComplete }) => {
+const Todo = ({ todo, onComplete, onDelete, onEdit }) => {
   return (
-    <div
-      className={
-        todo.isCompleted
-          ? `${styles.complete} ${styles.todoItem}`
-          : styles.todoItem
-      }
-    >
-      {todo.text}
+    <div className={styles.todoItem}>
+      <div
+        onClick={onComplete}
+        className={todo.isCompleted ? `${styles.complete}` : ""}
+      >
+        {todo.text}
+      </div>
+
       <div>
-        <button>edit</button>
-        <button onClick={onComplete}>completed</button>
+        <button onClick={onEdit}>edit</button>
+        <button onClick={onDelete}>Delete</button>
       </div>
     </div>
   );
