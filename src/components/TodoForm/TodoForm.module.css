@@ -1,0 +1,53 @@
+.input {
+  width: 400px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(11, 39, 165);
+  border-radius: 10px;
+}
+.input:focus {
+  border: 2px solid rgb(11, 39, 165);
+}
+
+.formPart {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #2563eb;
+  margin-bottom: 20px;
+}
+.btn {
+  width: 130px;
+  height: 37px;
+  background: royalblue;
+  color: white;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .form {
+    display: block;
+  }
+  .btn {
+    width: 100px;
+    height: 37px;
+    background: royalblue;
+    color: white;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px !important;
+  }
+  .input {
+    width: 100%;
+  }
+}

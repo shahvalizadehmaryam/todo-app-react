@@ -1,12 +1,21 @@
 import styles from "./TodoApp.module.css";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "../NavBar.js/NavBar";
 
 const TodoApp = () => {
+  const [selectVal, setSelectVal] = useState("");
   const [todos, setTodos] = useState([]);
   const [filterTodos, setFilterTodos] = useState([]);
+  useEffect(() => {
+    filterTodo(selectVal);
+  }, [todos]);
+  const selectChangeHandler = (selectedOption) => {
+    setSelectVal(selectedOption.value);
+    filterTodo(selectedOption.value);
+  };
+
   const addTodoHandler = (todoText) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
@@ -37,19 +46,12 @@ const TodoApp = () => {
   };
 
   const unCompletedTodos = todos.filter((todo) => !todo.isCompleted).length;
-  const onFilterTodo = (selectedValue) => {
+  const filterTodo = (selectedValue) => {
     switch (selectedValue) {
-      // case "":
-      //   setFilterTodos(todos);
-      //   break;
       case "Uncompleted":
-        // const filteredUnCompletedTodos = todos.filter(
-        //   (todo) => !todo.isCompleted
-        // );
         setFilterTodos(todos.filter((todo) => !todo.isCompleted));
         break;
       case "Completed":
-        // const filteredCompletedTodos = todos.filter((todo) => todo.isCompleted);
         setFilterTodos(todos.filter((todo) => todo.isCompleted));
         break;
       default:
@@ -59,11 +61,15 @@ const TodoApp = () => {
 
   return (
     <>
-      <div className="container">
-        <NavBar unCompleteTodo={unCompletedTodos} onFilterTodo={onFilterTodo} />
+      <div className={styles.container}>
+        <NavBar
+          unCompleteTodo={unCompletedTodos}
+          onSelect={selectChangeHandler}
+          selectVal={selectVal}
+        />
         <TodoForm onAddTodo={addTodoHandler} />
         <TodoList
-          todos={todos}
+          todos={filterTodos}
           onComplete={completeChangeHandler}
           onDelete={deleteHandler}
           onUpdateTodo={editHandler}

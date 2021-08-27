@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import styles from "./TodoForm.module.css";
 const TodoForm = (props) => {
   const inputRef = useRef(null);
   useEffect(() => {
@@ -20,17 +21,20 @@ const TodoForm = (props) => {
     setInputValue("");
   };
   return (
-    <div>
-      <form onSubmit={formSubmitHandler}>
+    <div className={styles.formPart}>
+      <form onSubmit={formSubmitHandler} className={styles.form}>
         <>
           <input
+            className={styles.input}
             type="text"
             value={inputValue}
             onChange={inputChangeHandler}
             placeholder={props.edit ? "update Todo ..." : "add Todo ..."}
             ref={inputRef}
           />
-          <button type="submit">{props.edit ? "update" : "add"}</button>
+          <button type="submit" className={styles.btn}>
+            {props.edit ? "update" : "add"}
+          </button>
         </>
       </form>
     </div>

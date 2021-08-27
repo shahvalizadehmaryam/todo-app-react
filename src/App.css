@@ -3,28 +3,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
   padding: 10px;
+  height: 100vh;
+  background-color: #0c44a2;
+  background-image: linear-gradient( to right, #7558d3, #4f90f4 );
+
 }
-.App h1 {
+
+.AppTitle {
   margin-bottom: 30px;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40rem;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-}
-input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 3px;
-  outline: none;
-}
-input:focus {
-  border: 2px solid rgb(11, 39, 165) !important;
+  color: white;
 }

@@ -1,29 +1,29 @@
 import { useState } from "react";
 import Select from "react-select";
-const NavBar = ({ unCompleteTodo, onFilterTodo }) => {
-  const [selectVal, setSelectVal] = useState("");
+import styles from "./NavBar.module.css";
+const NavBar = ({ unCompleteTodo, onSelect, selectVal }) => {
   const options = [
     { value: "", label: "All" },
     { value: "Uncompleted", label: "Uncompleted" },
     { value: "Completed", label: "Completed" },
   ];
-  const selectChangeHandler = (selectedOption) => {
-    setSelectVal(selectedOption.value);
-    onFilterTodo(selectedOption.value);
-  };
 
-  if (!unCompleteTodo) return <span>set ypur today todos!</span>;
+  if (!unCompleteTodo)
+    return <h3 className={styles.message}>set your today todos!</h3>;
   return (
-    <div>
-      <header>
+    <div className={styles.headerPart}>
+      <header className={styles.header}>
         <>
           <Select
             value={selectVal}
-            onChange={selectChangeHandler}
+            onChange={onSelect}
             options={options}
+            className={styles.select}
           />
-          <span>{unCompleteTodo}</span>
-          <h2>todos are not completed!</h2>
+          <div className={styles.todoCount}>
+            <span>{unCompleteTodo}</span>
+            <h2>unCompleted todos</h2>
+          </div>
         </>
       </header>
     </div>

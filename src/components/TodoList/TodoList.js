@@ -11,7 +11,7 @@ const TodoList = ({ todos, onComplete, onDelete, onUpdateTodo }) => {
 
   const renderTodo = () => {
     if (todos.length === 0) {
-      return <p>Enter Todo</p>;
+      return <h3 style={{ textAlign: "center" }}>Enter Todo!</h3>;
     }
     return todos.map((todo) => (
       <Todo
@@ -30,7 +30,7 @@ const TodoList = ({ todos, onComplete, onDelete, onUpdateTodo }) => {
     ));
   };
   return (
-    <div>
+    <div className={styles.todoList}>
       {edit.id ? <TodoForm onAddTodo={editTodo} edit={edit} /> : renderTodo()}
     </div>
   );

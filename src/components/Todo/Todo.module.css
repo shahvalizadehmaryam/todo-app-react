@@ -1,14 +1,36 @@
 .todoItem {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 10px 0;
-  width: 30rem;
-  border: 1px solid purple;
+  border: 1px solid #2563eb;
   border-radius: 10px;
   padding: 10px;
+  background: #fff;
 }
-.complete{
-    text-decoration: line-through;
-    color: #a59d9d;
+.complete {
+  text-decoration: line-through;
+  color: #a59d9d;
+}
+.btn {
+  padding: 5px;
+  width: 60px;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.editBtn {
+  background: #059669;
+}
+.editBtn:hover {
+  background: #047857;
+}
+.deleteBtn {
+  background: #dc2626;
+}
+.deleteBtn:hover {
+  background: #b91c1c;
 }
